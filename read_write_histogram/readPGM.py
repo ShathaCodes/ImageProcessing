@@ -1,12 +1,13 @@
 from numpy import array, int32
 
-def readpgm(filename):
+def readPGM(filename):
     f = open(filename,'r')
 
     # Read header info
     line = f.readline()
     magicNum = line.strip()
-    if magicNum != 'P2' and magicNum != 'P5':
+    # PGM or PPM
+    if magicNum != 'P2' and magicNum != 'P5' :
         f.close()
         print ('Not a valid PGM file')
         exit()
